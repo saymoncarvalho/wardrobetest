@@ -5,6 +5,8 @@ export const downloadSourceCode = async () => {
   
   // List of files to include in the source code download
   const files = [
+    'package.json',
+    'vite.config.ts',
     'index.html',
     'index.tsx',
     'App.tsx',
@@ -35,7 +37,7 @@ export const downloadSourceCode = async () => {
     await Promise.all(promises);
 
     // Add a simple README
-    zip.file("README.md", `# StyleFusion Source Code\n\nThis is the source code for the StyleFusion Virtual Try-On app.\n\n## How to run\n1. Install dependencies: \`npm install\`\n2. Run dev server: \`npm run dev\` (or equivalent)\n\nNote: You need to set up your API_KEY.`);
+    zip.file("README.md", `# StyleFusion Source Code\n\nThis is the source code for the StyleFusion Virtual Try-On app.\n\n## How to Deploy to Vercel\n1. Upload this folder to a GitHub repository.\n2. Import the project in Vercel.\n3. Vercel should automatically detect 'Vite' as the framework.\n4. **Important:** In Vercel Project Settings > Environment Variables, add a new variable:\n   - Name: \`API_KEY\`\n   - Value: Your Google Gemini API Key\n5. Deploy!`);
 
     // Generate the zip blob
     const content = await zip.generateAsync({ type: 'blob' });
