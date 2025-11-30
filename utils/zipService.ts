@@ -6,6 +6,8 @@ export const downloadSourceCode = async () => {
   // List of files to include in the source code download
   const files = [
     'package.json',
+    'tsconfig.json',
+    'vite-env.d.ts',
     'vite.config.ts',
     'index.html',
     'index.tsx',
