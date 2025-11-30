@@ -5,8 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   define: {
-    // This allows the use of process.env.API_KEY in the client-side code
-    // without crashing during the build or runtime on Vercel.
-    'process.env': process.env
+    // Safely expose the API_KEY env var to the client-side code.
+    // JSON.stringify is needed because define does a literal text replacement.
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
   }
 });
