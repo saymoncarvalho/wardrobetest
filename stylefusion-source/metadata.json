@@ -1,0 +1,5 @@
+{
+  "name": "StyleFusion Virtual Try-On",
+  "description": "A virtual try-on application that combines a user's photo with a clothing item photo using generative AI to visualize the outfit.",
+  "requestFramePermissions": []
+}
